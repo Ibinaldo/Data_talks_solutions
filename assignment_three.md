@@ -15,8 +15,10 @@ OPTIONS (
 CREATE OR REPLACE TABLE `dtc-terraform-de.de_zoomcamp_prefect.fhv_data_non_partitioned` AS
 (SELECT * FROM `dtc-terraform-de.de_zoomcamp_prefect.fhv_data` )
 ```
-We then query the table for count of vehicl records
--- SELECT COUNT(*) FROM `dtc-terraform-de.de_zoomcamp_prefect.fhv_data_non_partitioned`
+We then query the table for count of vehicle records
+```
+SELECT COUNT(*) FROM `dtc-terraform-de.de_zoomcamp_prefect.fhv_data_non_partitioned`
+```
 **Answer**: 43,244,696
 
 ## Question 2: Write a query to count the distinct number of affiliated_base_number for the entire dataset on both the tables. What is the estimated amount of data that will be read when this query is executed on the External Table and the Table?
@@ -24,13 +26,15 @@ We then query the table for count of vehicl records
 **Answer**:
 ```
 -- Number of base numbers for external table
+
 SELECT COUNT(DISTINCT Affiliated_base_number) FROM `dtc-terraform-de.de_zoomcamp_prefect.fhv_data`
 ```
 0 B for external table
 
 ```
 -- Number of base numbers for BQ table
--- SELECT COUNT(DISTINCT Affiliated_base_number) FROM `dtc-terraform-de.de_zoomcamp_prefect.fhv_data_non_partitioned`
+
+SELECT COUNT(DISTINCT Affiliated_base_number) FROM `dtc-terraform-de.de_zoomcamp_prefect.fhv_data_non_partitioned`
 ```
 317.94 MB for bq table
 
